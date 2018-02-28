@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings version="2">
+  <category name="cplex">
+    <setting name="solutiontype" value="1"/>
+    <setting name="repeatpresolve" value="2"/>
+    <setting name="symmetry" value="0"/>
+    <setting name="mipemphasis" value="1"/>
+    <setting name="workmem" value="5048.0"/>
+    <setting name="mipordtype" value="3"/>
+    <setting name="bqpcuts" value="-1"/>
+    <setting name="localimplbd" value="2"/>
+    <setting name="zerohalfcuts" value="-1"/>
+    <setting name="flowpaths" value="-1"/>
+    <setting name="mcfcuts" value="-1"/>
+    <setting name="mircuts" value="2"/>
+    <setting name="disjcuts" value="1"/>
+    <setting name="fraccuts" value="-1"/>
+    <setting name="flowcovers" value="-1"/>
+    <setting name="covers" value="-1"/>
+  </category>
+</settings>

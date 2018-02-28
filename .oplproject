@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+	<version>1.0</version>
+	<description>OPL Model for computing linearly conjugate networks</description>
+	<configs>
+		<config default="true" name="Configuration1" category="opl">
+			<ref name="Linear_Conjugacy.mod" type="model">
+			</ref>
+			<ref name="Linear_Conjugacy.ops" type="setting">
+			</ref>
+			<ref name="Linear_Conjugacy.dat" type="data">
+			</ref>
+		</config>
+	</configs>
+	
+</project>
