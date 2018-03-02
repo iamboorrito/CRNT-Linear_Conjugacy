@@ -38,16 +38,20 @@ dvar float Ah[1..cols][1..cols];
 // Should come up with better way of storing/indexing delta since there are
 // only n(n-1) values used and n ignored.
 dvar int delta[1..cols][1..cols];
-dvar int z;
 
 // Objective function
-minimize z;
+maximize  sum(<i,j> in off_diag) delta[i][j];
 
 // Begin constraint declarations
 subject to {
 
-	z == sum(<i,j> in off_diag) delta[i][j];
-	z == 13;
+/*
+	// Heuristic solution
+	forall(i in 1..rows-1){
+		T[i] == 1;
+	}
+*/	
+
 
 	// Y Ab = T M
 	forall(i in 1..rows, j in 1..cols){
@@ -105,31 +109,3 @@ writeln("solving time ~= ", (after.getTime()-temp));
 //////////////////////////
 
 execute DISPLAY{};
-
-	
-	/*
-	// Old code
-	// Bounds on entries of Ab, Ak, and delta binary
-	forall(i in 1..cols, j in 1..cols){
-		if(i != j){
-			// Ab constraints
-			Ab[i][j] >= 0;	
-			Ab[i][j] - eps*delta[i][j] >= 0;
-		    Ab[i][j] - ubound*delta[i][j] <= 0;
-		   
-		   	// Ah constraints
-		   	Ah[i][j] >= 0;	
-			Ah[i][j] - eps*delta[i][j] >= 0;
-		    Ah[i][j] - ubound*delta[i][j] <= 0;
-		   
-		    // delta is binary
-		    0 <= delta[i][j] <= 1;
-		}else{
-			Ab[i][j] <= 0;
-			Ab[i][j] + ubound*delta[i][j] >= 0;
-			
-			Ah[i][j] <= 0;	
-			Ah[i][j] + ubound*delta[i][j] >= 0;
-		}	
-	}
-	*/
