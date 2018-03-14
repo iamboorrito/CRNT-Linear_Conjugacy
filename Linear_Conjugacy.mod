@@ -40,7 +40,7 @@ dvar float Ah[1..cols][1..cols];
 dvar int delta[1..cols][1..cols];
 
 // Objective function
-maximize  sum(<i,j> in off_diag) delta[i][j];
+maximize -sum(<i,j> in off_diag) delta[i][j];
 
 // Begin constraint declarations
 subject to {
@@ -51,8 +51,6 @@ subject to {
 		T[i] == 1;
 	}
 */	
-
-
 	// Y Ab = T M
 	forall(i in 1..rows, j in 1..cols){
 		sum(k in 1..cols) Y[i][k]*Ab[k][j] - T[i]*M[i][j] == 0;
